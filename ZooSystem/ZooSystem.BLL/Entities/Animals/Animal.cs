@@ -1,7 +1,7 @@
 ﻿namespace ZooSystem.BLL.Entities.Animals
 {
     using System;
-    
+
     public abstract class Animal
     {
 
@@ -15,34 +15,56 @@
 
         private Species specie;
 
-        private DateTime? birthDate;
+        private DateTime birthDate;
 
-        private const int DefaultStamina = 100;
-        private const int DefaultStaminaDecrease = 15;
-
-        // private bool isActive = true;
-        // private bool isDead = false;
+        private const sbyte DefaultStamina = 100;
 
 
-        public Animal() { }
-
-        public Animal(string name, int age, int stamina, int lifeExpectancy, Species specie,
-                        DateTime? birthDate)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Animal"/> class.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="age"></param>
+        /// <param name="lifeExpectancy"></param>
+        public Animal(string name, int age, int lifeExpectancy)
+            :this(name, age, DefaultStamina, lifeExpectancy, new DateTime())
         {
-            this.name = Name;
-            this.age = Age;
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Animal"/> class.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="age"></param>
+        /// <param name="lifeExpectancy"></param>
+        /// <param name="birthDay"></param>
+        public Animal(string name, int age, int lifeExpectancy, DateTime birthDay)
+            :this(name, age, DefaultStamina, lifeExpectancy, birthDay)
+        {
+
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Animal"/> class.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="age"></param>
+        /// <param name="stamina"></param>
+        /// <param name="lifeExpectancy"></param>
+        /// <param name="birthDate"></param>
+        public Animal(string name, int age, int stamina, int lifeExpectancy, DateTime birthDate)
+        {
+            this.Name = name;
+            this.Age = age;
             this.Stamina = stamina;
             this.lifeExpectancy = lifeExpectancy;
-            this.Specie = specie;
-            this.birthDate = new DateTime();
+            this.BirthDate = birthDate;
         }
 
         public string Name
         {
-            get
-            {
-                return this.name;
-            }
+            get { return this.Name; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -56,10 +78,7 @@
 
         public int Age
         {
-            get
-            {
-                return this.age;
-            }
+            get { return this.Age; }
             set
             {
                 if (value >= int.MaxValue && value < int.MaxValue)
@@ -73,30 +92,30 @@
             }
         }
 
-        public Species Specie
-        {
-            get
-            {
-                return this.specie;
-            }
-            set
-            {
-                this.specie = value;
-            }
-        }
-
         public DateTime BirthDate
         {
-            get
-            {
-                return this.BirthDate;
-            }
+            get { return this.birthDate; }
             set
             {
                 this.birthDate = value;
             }
+
+        }
+
+        public int Stamina
+        {
+            get { return this.stamina; }
+            set
+            {
+                this.stamina = value;
+                if (stamina <= 0)
+                {
+                    Console.WriteLine("{0} is dead.", this.Name);
+                }
+            }
         }
         
+
         /// <summary>
         /// Calculates the life span of an animal.
         /// </summary>
@@ -105,28 +124,6 @@
         {
             var expectancy = lifeExpectancy - age;
             return expectancy;
-        }
-
-        public virtual int Stamina { get; private set; }
-
-        
-        public abstract string Speak();
-        public abstract string Eat();
-
-        /// <summary>
-        /// Decreases stamina. 
-        /// </summary>
-        public void ReduceStamina()
-        {
-            this.Stamina -= DefaultStaminaDecrease;
-        }
-
-        /// <summary>
-        /// Forces animal's age to increase
-        /// </summary>
-        public void ForceAgeToIncrease()
-        {
-            this.Age = age--;
         }
 
         /// <summary>
@@ -145,8 +142,40 @@
         public bool IsAlive()
         {
             return lifeExpectancy > 0;
-        } 
+        }
 
 
+        public abstract string Speak();
+
+        public abstract string Eat();
+
+        public abstract Species Specie { get; }
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="decreaseStaminaPoints"></param>
+        public void DecreaseStamina(int decreaseStaminaPoints)
+        {
+            this.Stamina -= decreaseStaminaPoints;
+            if (Stamina < 0)
+            {
+                this.Stamina = 0;
+            }
+        }
+
+        /// <summary>
+        /// Increases animal stamina
+        /// </summary>
+        /// <param name="increaseStaminaPoints"></param>
+        public void IncreaseStamina(int increaseStaminaPoints)
+        {
+            this.Stamina += increaseStaminaPoints;
+            if (Stamina > DefaultStamina)
+            {
+                this.Stamina = 100;
+            }
+        }
     }
 }
