@@ -1,7 +1,7 @@
 ﻿namespace ZooSystem.BLL.Entities.Animals
 {
     using System;
-
+    
     public abstract class Animal
     {
 
@@ -23,6 +23,19 @@
         // private bool isActive = true;
         // private bool isDead = false;
 
+
+        public Animal() { }
+
+        public Animal(string name, int age, int stamina, int lifeExpectancy, Species specie,
+                        DateTime? birthDate)
+        {
+            this.name = Name;
+            this.age = Age;
+            this.Stamina = stamina;
+            this.lifeExpectancy = lifeExpectancy;
+            this.Specie = specie;
+            this.birthDate = new DateTime();
+        }
 
         public string Name
         {
@@ -109,6 +122,14 @@
         }
 
         /// <summary>
+        /// Forces animal's age to increase
+        /// </summary>
+        public void ForceAgeToIncrease()
+        {
+            this.Age = age--;
+        }
+
+        /// <summary>
         /// Returns bool.
         /// </summary>
         /// <returns></returns>
@@ -125,5 +146,7 @@
         {
             return lifeExpectancy > 0;
         } 
+
+
     }
 }

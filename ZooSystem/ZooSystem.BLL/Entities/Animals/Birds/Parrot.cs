@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZooSystem.BLL.Entities.Animals.Birds
+﻿namespace ZooSystem.BLL.Entities.Animals.Birds
 {
-    class Parrot
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public class Parrot : Animal
     {
+        public override string Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Speak()
+        {
+            return string.Format("Crooooooack");
+        }
     }
 }

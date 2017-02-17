@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZooSystem.BLL.Entities.Animals.Reptiles
+﻿namespace ZooSystem.BLL.Entities.Animals.Reptiles
 {
-    class Crocodile
+    using System;
+
+    public class Crocodile : Animal
     {
+        public override string Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string Speak()
+        {
+            return string.Format("Crawwwwwwwgrrrrr");
+        }
     }
 }

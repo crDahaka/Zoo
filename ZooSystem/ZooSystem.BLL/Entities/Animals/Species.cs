@@ -4,7 +4,6 @@
     {
         Reptile,
         Mammal,
-        Bird,
-        Herbivore
+        Bird
     }
 }
