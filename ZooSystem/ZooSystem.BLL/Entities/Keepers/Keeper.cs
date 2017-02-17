@@ -3,25 +3,21 @@
     using Animals;
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    public class Keeper
+    public sealed class Keeper
     {
         private string name;
-        private ICollection<Animal> animalsToGuard;
+        private IList<Animal> animalsToGuard;
 
         public Keeper(string name)
         {
             this.Name = name;
-            this.animalsToGuard = new Collection<Animal>();
+            this.animalsToGuard = new List<Animal>();
         }
 
         public string Name
         {
-            get
-            {
-                return this.name;
-            }
+            get { return this.Name; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -31,9 +27,26 @@
                 this.name = value;
             }
         }
+
+        public IList<Animal> Animals
+        {
+            get { return new List<Animal>(animalsToGuard); }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("The keeper should guard at least two animals.");
+                }
+                this.animalsToGuard = new List<Animal>(value);
+            }
+        }
         
 
-        public void FeedAnimal()
+        /// <summary>
+        /// Feed an animal.
+        /// </summary>
+        /// <param name="animal"></param>
+        public void FeedAnimal(Animal animal)
         {
 
         }

@@ -150,23 +150,9 @@
         public abstract string Eat();
 
         public abstract Species Specie { get; }
-
-        
+       
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="decreaseStaminaPoints"></param>
-        public void DecreaseStamina(int decreaseStaminaPoints)
-        {
-            this.Stamina -= decreaseStaminaPoints;
-            if (Stamina < 0)
-            {
-                this.Stamina = 0;
-            }
-        }
-
-        /// <summary>
-        /// Increases animal stamina
+        /// Increase animal stamina.
         /// </summary>
         /// <param name="increaseStaminaPoints"></param>
         public void IncreaseStamina(int increaseStaminaPoints)
@@ -175,6 +161,19 @@
             if (Stamina > DefaultStamina)
             {
                 this.Stamina = 100;
+            }
+        }
+
+        /// <summary>
+        /// Decrease animal stamina.
+        /// </summary>
+        /// <param name="decreaseStaminaPoints"></param>
+        public void DecreaseStamina(int decreaseStaminaPoints)
+        {
+            this.Stamina -= decreaseStaminaPoints;
+            if (Stamina < 0)
+            {
+                this.Stamina = 0;
             }
         }
     }
