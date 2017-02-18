@@ -1,12 +1,15 @@
 I. General Requirements
 
+
 You are to design and implement a zoo.
 
 Your zoo should have a set of animals and also zoo keepers. The zoo should also support several operations needed for its proper functioning and to ensure the wellbeing of all animals.
 
 The zoo should be able to “run”. This operation should trigger one cycle of related operations. In that cycle, the zoo keepers should feed the animals and the animals should become tired. Let’s consider that 10 cycles should also make the animals grow older.
 
+
 II. Animal Requirements
+
 
 Each set of animals should be of a different type. There could be sets of mammals and birds, for example, but your zoo should be able to support not less than 4 types of animals. On the other hand, each type of animal should have not less than 3 species, for example goats are mammals. Ensure that are enough animals of each species to provoke visitors interest and not just one crocodile, named “Rick”, other wise the zoo’s evaluation will be decreased by the zoo inspector.
 
@@ -20,7 +23,9 @@ There should be an option to “create” newly born animals that have the maxim
 
 Each animal should be able to “speak”. When we “call” the method that provokes the animal to speak, we should be able to print a string representation of the sound the animal makes.
 
+
 III. Zoo Keeper Requirements
+
 
 The zoo keepers take care of the animals.
 
