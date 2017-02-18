@@ -2,7 +2,7 @@
 {
     public enum Species
     {
-        Reptile,
+        Herbivore,
         Mammal,
         Bird,
         Carnivore

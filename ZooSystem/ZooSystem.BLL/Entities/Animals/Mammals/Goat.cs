@@ -4,7 +4,24 @@
 
     public class Goat : Animal
     {
-        public override string Eat()
+
+        private const sbyte averageLifeSpan = 13;
+
+        public Goat(string name, int age)
+            :base(name, age, averageLifeSpan)
+        {
+
+        }
+
+        public override Species Specie
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public override string Eat(AnimalFood food)
         {
             throw new NotImplementedException();
         }

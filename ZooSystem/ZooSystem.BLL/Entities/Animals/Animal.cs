@@ -114,7 +114,14 @@
                 }
             }
         }
-        
+
+        public abstract string Speak();
+
+        public abstract string Eat(AnimalFood food);
+
+        public abstract Species Specie { get; }
+
+        public string KeeperName { get; set; }
 
         /// <summary>
         /// Calculates the life span of an animal.
@@ -143,13 +150,7 @@
         {
             return lifeExpectancy > 0;
         }
-
-
-        public abstract string Speak();
-
-        public abstract string Eat();
-
-        public abstract Species Specie { get; }
+        
        
         /// <summary>
         /// Increase animal stamina.

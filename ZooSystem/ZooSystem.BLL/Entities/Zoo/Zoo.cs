@@ -71,8 +71,7 @@
             {
                 animal.DecreaseStamina(15);
             }
-
-            this.cycle += 1;
+            
         }
 
         /// <summary>
@@ -84,6 +83,8 @@
             Console.WriteLine("Cycle : {0}", this.cycle + 1);
 
             ForceAnimalsToGetTired();
+
+            this.cycle += 1;
         }
     }
 }

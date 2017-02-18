@@ -1,14 +1,20 @@
 ﻿namespace ZooSystem.BLL.Entities.Keepers
 {
-    using Animals;
+
     using System;
     using System.Collections.Generic;
+
+    using Animals;
 
     public sealed class Keeper
     {
         private string name;
         private IList<Animal> animalsToGuard;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Keeper"/> class.
+        /// </summary>
+        /// <param name="name"></param>
         public Keeper(string name)
         {
             this.Name = name;
@@ -41,6 +47,15 @@
             }
         }
         
+        /// <summary>
+        /// Adds animal the keeper should protect.
+        /// </summary>
+        /// <param name="animal"></param>
+        public void ProtectAnimal(Animal animal)
+        {
+            animal.KeeperName = this.Name;
+            this.animalsToGuard?.Add(animal);
+        }
 
         /// <summary>
         /// Feed an animal.

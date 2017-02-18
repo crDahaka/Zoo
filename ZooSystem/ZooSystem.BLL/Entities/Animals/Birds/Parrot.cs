@@ -1,14 +1,27 @@
 ﻿namespace ZooSystem.BLL.Entities.Animals.Birds
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Parrot : Animal
     {
-        public override string Eat()
+
+        private const sbyte averageLifeSpan = 45;
+
+        public Parrot(string name, int age)
+            :base(name, age, averageLifeSpan)
+        {
+
+        }
+
+        public override Species Specie
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public override string Eat(AnimalFood food)
         {
             throw new NotImplementedException();
         }
