@@ -184,5 +184,10 @@
                 this.Stamina = 0;
             }
         }
+
+        public Animal GetNewbornAnimal(Animal newbornAnimal)
+        {
+            return newbornAnimal;
+        }
     }
 }

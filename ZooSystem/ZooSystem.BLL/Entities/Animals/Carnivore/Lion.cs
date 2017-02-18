@@ -1,45 +1,45 @@
-﻿namespace ZooSystem.BLL.Entities.Animals.Birds
+﻿namespace ZooSystem.BLL.Entities.Animals.Carnivore
 {
     using System;
 
-    public class Parrot : Animal
+    public class Lion : Animal
     {
 
-        private const byte averageLifeSpan = 35;
+        private const sbyte averageLifeSpan = 15;
 
-        private const string ParrotSpeech = "Croackkkk";
+        private const string LionSpeech = "RAWRRRR!";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parrot"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
-        public Parrot(string name, int age)
+        public Lion(string name, int age)
             :base(name, age, averageLifeSpan)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parrot"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="birthDay"></param>
-        public Parrot(string name, int age, DateTime birthDay)
+        public Lion(string name, int age, DateTime birthDay)
             :base(name, age, averageLifeSpan, birthDay)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parrot"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="stamina"></param>
         /// <param name="birthDay"></param>
-        public Parrot(string name, int age, int stamina, DateTime birthDay)
+        public Lion(string name, int age, int stamina, DateTime birthDay)
             :base(name, age, stamina, averageLifeSpan, birthDay)
         {
 
@@ -47,37 +47,36 @@
 
         public override Species Specie
         {
-            get { return Species.Bird; }
+            get { return Species.Carnivore;}
         }
 
         /// <summary>
-        /// Feeds the parrot.
+        /// Feeds the lion.
         /// </summary>
         /// <param name="food"></param>
         public override void Eat(AnimalFood food)
         {
-            if (food.Type != FoodType.Crackers)
+            if (food.Type != FoodType.Meat)
             {
-                Console.WriteLine("Parrot eats only crackers!");
+                Console.WriteLine("Lion eats only meat!");
                 return;
-
+                
             }
 
             Console.WriteLine(
-                    "Parrot {0} ate some tasty crackers and increased its stamina with {1}.",
+                    "Lion {0} got some fresh meat and increased its stamina with {1}.",
                     this.Name, food.RegenerateStamina());
 
             this.IncreaseStamina(food.RegenerateStamina());
-
         }
 
         /// <summary>
-        /// Introduces parrot.
+        /// Introduces lion.
         /// </summary>
         /// <returns></returns>
         public override string Speak()
         {
-            return string.Format("Parrot {0} says {1}:", this.Name, ParrotSpeech);
+            return string.Format("Lion {0} says {1}:", this.Name, LionSpeech);
         }
     }
 }

@@ -133,6 +133,7 @@
                 }
             }
 
+
             ForceAnimalsToGetTired();
             
             this.cycle += 1;

@@ -43,6 +43,8 @@
     <Compile Include="Entities\AnimalFood.cs" />
     <Compile Include="Entities\Animals\Animal.cs" />
     <Compile Include="Entities\Animals\Birds\Parrot.cs" />
+    <Compile Include="Entities\Animals\Carnivore\Lion.cs" />
+    <Compile Include="Entities\Animals\Herbivore\Deer.cs" />
     <Compile Include="Entities\Animals\Mammals\Goat.cs" />
     <Compile Include="Entities\Animals\Species.cs" />
     <Compile Include="Entities\FoodType.cs" />
@@ -51,10 +53,7 @@
     <Compile Include="Entities\Zoo\Zoo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\Animals\Carnivore\" />
-    <Folder Include="Entities\Animals\Herbivore\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
