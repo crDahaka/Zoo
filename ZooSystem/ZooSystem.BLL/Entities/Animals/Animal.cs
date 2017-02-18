@@ -17,7 +17,7 @@
 
         private DateTime birthDate;
 
-        private const sbyte DefaultStamina = 100;
+        private const byte DefaultStamina = 100;
 
 
         /// <summary>
@@ -62,9 +62,9 @@
             this.BirthDate = birthDate;
         }
 
-        public string Name
+        public virtual string Name
         {
-            get { return this.Name; }
+            get { return this.name; }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -76,12 +76,12 @@
             }
         }
 
-        public int Age
+        public virtual int Age
         {
-            get { return this.Age; }
+            get { return this.age; }
             set
             {
-                if (value >= int.MaxValue && value < int.MaxValue)
+                if (age >= 0)
                 {
                     this.age = value;
                 }
@@ -92,7 +92,7 @@
             }
         }
 
-        public DateTime BirthDate
+        public virtual DateTime BirthDate
         {
             get { return this.birthDate; }
             set
@@ -102,7 +102,7 @@
 
         }
 
-        public int Stamina
+        public virtual int Stamina
         {
             get { return this.stamina; }
             set
@@ -117,17 +117,17 @@
 
         public abstract string Speak();
 
-        public abstract string Eat(AnimalFood food);
+        public abstract void Eat(AnimalFood food);
 
         public abstract Species Specie { get; }
 
-        public string KeeperName { get; set; }
+        public virtual int KeeperId { get; set; }
 
         /// <summary>
         /// Calculates the life span of an animal.
         /// </summary>
         /// <returns></returns>
-        public int CalculateLifeExpectancy()
+        public virtual int CalculateLifeExpectancy()
         {
             var expectancy = lifeExpectancy - age;
             return expectancy;
@@ -137,7 +137,7 @@
         /// Returns bool.
         /// </summary>
         /// <returns></returns>
-        public bool IsActive()
+        public virtual bool IsActive()
         {
             return Stamina > 0;
         }
@@ -146,9 +146,13 @@
         /// Returns bool.
         /// </summary>
         /// <returns></returns>
-        public bool IsAlive()
+        public virtual bool IsAlive()
         {
-            return lifeExpectancy > 0;
+            if (lifeExpectancy - this.age > 0)
+            {
+                return true;
+            }
+            return false;
         }
         
        
@@ -156,7 +160,7 @@
         /// Increase animal stamina.
         /// </summary>
         /// <param name="increaseStaminaPoints"></param>
-        public void IncreaseStamina(int increaseStaminaPoints)
+        public virtual void IncreaseStamina(int increaseStaminaPoints)
         {
             this.Stamina += increaseStaminaPoints;
             if (Stamina > DefaultStamina)
@@ -169,8 +173,11 @@
         /// Decrease animal stamina.
         /// </summary>
         /// <param name="decreaseStaminaPoints"></param>
-        public void DecreaseStamina(int decreaseStaminaPoints)
+        public virtual void DecreaseStamina(int decreaseStaminaPoints)
         {
+            Console.WriteLine(string.Format("{0}'s stamina has been decreased by {1}",
+                this.Name, decreaseStaminaPoints));
+
             this.Stamina -= decreaseStaminaPoints;
             if (Stamina < 0)
             {
