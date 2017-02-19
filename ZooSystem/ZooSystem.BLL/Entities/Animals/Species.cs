@@ -5,6 +5,7 @@
         Herbivore,
         Mammal,
         Bird,
-        Carnivore
+        Carnivore,
+        Newborn
     }
 }

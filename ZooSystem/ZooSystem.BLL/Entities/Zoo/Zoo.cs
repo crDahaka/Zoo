@@ -6,6 +6,7 @@
 
     using Animals;
     using Keepers;
+    using Common;
 
     public sealed class Zoo
     {
@@ -99,17 +100,30 @@
         }
 
         /// <summary>
+        /// Returns newborn animal.
+        /// </summary>
+        /// <returns></returns>
+        public Animal CreateNewbornAnimal()
+        {
+
+            string generatedName = NameGenerator.GenerateAnimalName(6);
+
+            Animal animal = new NewbornAnimal(generatedName, 1);
+
+            Console.WriteLine(string.Format("We've got a new born which name is: {0}!", animal.Name));
+
+            return animal;
+
+        }
+
+        /// <summary>
         /// Triggers cycle.
         /// </summary>
         public void Run()
         {
-            //TODO:
-            // check if animal is dead
-            // dont decrease stamina
 
-            Console.WriteLine("Welcome to the best Zoo!");
             Console.WriteLine("Cycle : {0}", this.cycle + 1);
-
+            
             foreach (Keeper keeper in this.keepers)
             {
                 if (keeper.Animals.Count < 2)
@@ -133,6 +147,7 @@
                 }
             }
 
+            CreateNewbornAnimal();
 
             ForceAnimalsToGetTired();
             

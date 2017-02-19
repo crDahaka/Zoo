@@ -54,6 +54,10 @@
       <Project>{c14ff9c4-32f9-4745-a7db-1ff93719f2aa}</Project>
       <Name>ZooSystem.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZooSystem.Common\ZooSystem.Common.csproj">
+      <Project>{9CDF5ED9-EB15-41D4-B5C5-90DB87482062}</Project>
+      <Name>ZooSystem.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

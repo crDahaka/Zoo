@@ -185,9 +185,5 @@
             }
         }
 
-        public Animal GetNewbornAnimal(Animal newbornAnimal)
-        {
-            return newbornAnimal;
-        }
     }
 }

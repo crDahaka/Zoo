@@ -22,8 +22,8 @@
         /// <param name="name"></param>
         public Keeper(int id, Level level)
         {
-            this.Level = level;
             this.Id = id;
+            this.Level = Level;
             this.animalsToGuard = new List<Animal>();
             this.generateFoodQuantity = new Random();
         }

@@ -10,6 +10,7 @@
     using BLL.Entities.Animals.Carnivore;
     using BLL.Entities.Animals.Herbivore;
     using BLL.Entities.Animals.Mammals;
+    using Common;
 
     public class EntryPoint
     {
@@ -26,6 +27,8 @@
         /// <param name="zoo"></param>
         private static void InitializeZoo(Zoo zoo)
         {
+            Console.WriteLine("Welcome to the best Zoo!");
+
             // Birds
 
             Animal macawParrot = new Parrot("Jerome", 1);
@@ -56,6 +59,8 @@
 
             // Keepers
 
+            // var keeperLevel = GenerateRandomKeeperLevel.GenerateRandomLevel<Level>();
+            
             Keeper noviceKeeper = new Keeper(1, Level.Novice);
             Keeper intermediateKeeper = new Keeper(2, Level.Intermediate);
             Keeper advancedKeeper = new Keeper(3, Level.Advanced);
@@ -65,6 +70,7 @@
             zoo.AppointKeeper(advancedKeeper);
             zoo.AppointKeeper(expertKeeper);
 
+            
             // Assign animals to protect
 
             noviceKeeper.ProtectAnimal(macawParrot);
@@ -81,7 +87,7 @@
 
             zoo.AppointKeeper(noviceKeeper);
             zoo.AppointKeeper(intermediateKeeper);
-
+            
             for (int i = 0; i < 10; i++)
             {
                 zoo.Run();
