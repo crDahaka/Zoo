@@ -6,15 +6,12 @@
 
     using Animals;
     using Keepers;
-    using Common;
 
     public sealed class Zoo
     {
         private IList<Animal> animals;
         private IList<Keeper> keepers;
-
-        private Random staminaDecreasePointsGenerator;
-
+        
         private uint cycle = 0;
 
         /// <summary>
@@ -24,7 +21,6 @@
         {
             this.animals = new List<Animal>();
             this.keepers = new List<Keeper>();
-            this.staminaDecreasePointsGenerator = new Random();
         }
 
         /// <summary>
@@ -65,56 +61,7 @@
                 this.keepers = new List<Keeper>(value);
             }
         }
-
-        /// <summary>
-        /// Appoints new keeper.
-        /// </summary>
-        /// <param name="keeper"></param>
-        public void AppointKeeper(Keeper keeper)
-        {
-            this.keepers?.Add(keeper);
-        }
-
-        /// <summary>
-        /// Adds new animal in the zoo.
-        /// </summary>
-        /// <param name="animal"></param>
-        public void AddAnimal(Animal animal)
-        {
-            this.animals?.Add(animal);
-        }
-
-        /// <summary>
-        /// Forces animals to get tired.
-        /// </summary>
-        public void ForceAnimalsToGetTired()
-        {
-            foreach (Animal animal in this.animals)
-            {
-                var decreasePoints = this.staminaDecreasePointsGenerator.Next(10, 30);
-
-                animal.DecreaseStamina(decreasePoints);
-                
-            }
-            
-        }
-
-        /// <summary>
-        /// Returns newborn animal.
-        /// </summary>
-        /// <returns></returns>
-        public Animal CreateNewbornAnimal()
-        {
-
-            string generatedName = NameGenerator.GenerateAnimalName(6);
-
-            Animal animal = new NewbornAnimal(generatedName, 1);
-
-            Console.WriteLine(string.Format("We've got a new born which name is: {0}!", animal.Name));
-
-            return animal;
-
-        }
+        
 
         /// <summary>
         /// Triggers cycle.
@@ -138,18 +85,16 @@
                     if (keeper.Level == Level.Novice || keeper.Level == Level.Intermediate)
                     {
                         Console.WriteLine(
-                            "Keeper with ID:{0} cannot feed animal {1}, due to low level. ",
+                            "Keeper with ID:{0} cannot feed animal {1}, due to low level.",
                             keeper.Id, animal.Name);
+                        animal.DecreaseStamina();
                     }
                     
                     animal.Age++;
                     keeper.FeedAnimal(animal);
+                    animal.ForceAnimalToGetTired();
                 }
             }
-
-            CreateNewbornAnimal();
-
-            ForceAnimalsToGetTired();
             
             this.cycle += 1;
         }

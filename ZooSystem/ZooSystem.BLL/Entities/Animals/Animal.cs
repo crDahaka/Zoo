@@ -19,6 +19,8 @@
 
         private const byte DefaultStamina = 100;
 
+        private Random staminaDecreasePointsGenerator;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Animal"/> class.
@@ -60,6 +62,7 @@
             this.Stamina = stamina;
             this.lifeExpectancy = lifeExpectancy;
             this.BirthDate = birthDate;
+            this.staminaDecreasePointsGenerator = new Random();
         }
 
         public virtual string Name
@@ -172,17 +175,30 @@
         /// <summary>
         /// Decrease animal stamina.
         /// </summary>
-        /// <param name="decreaseStaminaPoints"></param>
-        public virtual void DecreaseStamina(int decreaseStaminaPoints)
+        public virtual void DecreaseStamina()
         {
+            var decreasePoints = this.staminaDecreasePointsGenerator.Next(1, 20);
             Console.WriteLine(string.Format("{0}'s stamina has been decreased by {1}",
-                this.Name, decreaseStaminaPoints));
+                this.Name, decreasePoints));
 
-            this.Stamina -= decreaseStaminaPoints;
+            this.Stamina -= decreasePoints;
             if (Stamina < 0)
             {
                 this.Stamina = 0;
             }
+        }
+
+        /// <summary>
+        /// Forces animal to get tired.
+        /// </summary>
+        public virtual void ForceAnimalToGetTired()
+        {
+            var decreasePoints = this.staminaDecreasePointsGenerator.Next(1, 20);
+
+            Console.WriteLine(
+                "Animal {0} enjoyed the numerous visitors and he got tired. Stamina decreased by: {1}",
+                this.Name, decreasePoints);
+            this.Stamina -= decreasePoints;
         }
 
     }

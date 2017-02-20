@@ -8,8 +8,6 @@
 
         public uint Quantity { get; set; }
 
-        // public byte DefaultStaminaRegenerate { get; } = 5;
-
         private Random staminaPointsGenerator;
 
 
@@ -25,9 +23,13 @@
             this.staminaPointsGenerator = new Random();
         }
 
+        /// <summary>
+        /// Increases animal stamina.
+        /// </summary>
+        /// <returns></returns>
         public int RegenerateStamina()
         {
-            var generatedPoints = this.staminaPointsGenerator.Next(1, 10);
+            var generatedPoints = this.staminaPointsGenerator.Next(10, 20);
 
             return generatedPoints;
 
