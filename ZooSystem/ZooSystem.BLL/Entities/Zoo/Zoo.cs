@@ -90,7 +90,6 @@
                         animal.DecreaseStamina();
                     }
                     
-                    animal.Age++;
                     keeper.FeedAnimal(animal);
                     animal.ForceAnimalToGetTired();
                 }

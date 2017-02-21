@@ -84,7 +84,7 @@
         public virtual int Age
         {
             get { return this.age; }
-            set
+            private set
             {
                 if (age >= 0)
                 {
