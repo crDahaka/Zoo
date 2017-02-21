@@ -13,8 +13,8 @@
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
-        public Deer(string name, int age)
-            :base(name, age, averageLifeSpan)
+        public Deer(int id, string name, int age)
+            :base(id, name, age, averageLifeSpan)
         {
 
         }
@@ -25,8 +25,8 @@
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="birthDay"></param>
-        public Deer(string name, int age, DateTime birthDay)
-            :base(name, age, averageLifeSpan, birthDay)
+        public Deer(int id, string name, int age, DateTime birthDay)
+            :base(id, name, age, averageLifeSpan, birthDay)
         {
 
         }
@@ -38,8 +38,8 @@
         /// <param name="age"></param>
         /// <param name="stamina"></param>
         /// <param name="birthDay"></param>
-        public Deer(string name, int age, int stamina, DateTime birthDay)
-            :base(name, age, stamina, averageLifeSpan, birthDay)
+        public Deer(int id, string name, int age, int stamina, DateTime birthDay)
+            :base(id, name, age, stamina, averageLifeSpan, birthDay)
         {
 
         }

@@ -4,6 +4,7 @@
 
     public abstract class Animal
     {
+        private int id;
 
         private string name;
 
@@ -28,8 +29,8 @@
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="lifeExpectancy"></param>
-        public Animal(string name, int age, int lifeExpectancy)
-            :this(name, age, DefaultStamina, lifeExpectancy, new DateTime())
+        public Animal(int id, string name, int age, int lifeExpectancy)
+            :this(id, name, age, DefaultStamina, lifeExpectancy, new DateTime())
         {
 
         }
@@ -41,8 +42,8 @@
         /// <param name="age"></param>
         /// <param name="lifeExpectancy"></param>
         /// <param name="birthDay"></param>
-        public Animal(string name, int age, int lifeExpectancy, DateTime birthDay)
-            :this(name, age, DefaultStamina, lifeExpectancy, birthDay)
+        public Animal(int id, string name, int age, int lifeExpectancy, DateTime birthDay)
+            :this(id, name, age, DefaultStamina, lifeExpectancy, birthDay)
         {
 
         }
@@ -55,8 +56,9 @@
         /// <param name="stamina"></param>
         /// <param name="lifeExpectancy"></param>
         /// <param name="birthDate"></param>
-        public Animal(string name, int age, int stamina, int lifeExpectancy, DateTime birthDate)
+        public Animal(int id, string name, int age, int stamina, int lifeExpectancy, DateTime birthDate)
         {
+            this.Id = id;
             this.Name = name;
             this.Age = age;
             this.Stamina = stamina;
@@ -68,7 +70,7 @@
         public virtual string Name
         {
             get { return this.name; }
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -98,7 +100,7 @@
         public virtual DateTime BirthDate
         {
             get { return this.birthDate; }
-            set
+            private set
             {
                 this.birthDate = value;
             }
@@ -108,7 +110,7 @@
         public virtual int Stamina
         {
             get { return this.stamina; }
-            set
+            private set
             {
                 this.stamina = value;
                 if (stamina <= 0)
@@ -125,6 +127,14 @@
         public abstract Species Specie { get; }
 
         public virtual int KeeperId { get; set; }
+
+        
+
+        public int Id
+        {
+            get { return this.id; }
+            private set { this.id = value; }
+        }
 
         /// <summary>
         /// Calculates the life span of an animal.

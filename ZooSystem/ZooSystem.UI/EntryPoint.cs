@@ -34,29 +34,29 @@
 
             // Birds
 
-            Animal macawParrot = new Parrot("Jerome", 1);
-            Animal caiqueParrot = new Parrot("Austin", 2);
+            Animal macawParrot = new Parrot(1,"Jerome", 1);
+            Animal caiqueParrot = new Parrot(2, "Austin", 2);
             animalRepository.Add(macawParrot);
             animalRepository.Add(caiqueParrot);
 
             // Carnivore
 
-            Animal africanLion = new Lion("Connor", 7);
-            Animal caveLion = new Lion("Sly", 4);
+            Animal africanLion = new Lion(3, "Connor", 7);
+            Animal caveLion = new Lion(4, "Sly", 4);
             animalRepository.Add(africanLion);
             animalRepository.Add(caveLion);
 
             // Herbivore
 
-            Animal reindeer = new Deer("Lora", 2);
-            Animal blackTailedDeer = new Deer("Ann", 4);
+            Animal reindeer = new Deer(5,"Lora", 2);
+            Animal blackTailedDeer = new Deer(6, "Ann", 4);
             animalRepository.Add(reindeer);
             animalRepository.Add(blackTailedDeer);
 
             // Mammals
 
-            Animal alpineGoat = new Goat("Merry", 1);
-            Animal boerGoat = new Goat("Carrie", 6);
+            Animal alpineGoat = new Goat(7, "Merry", 1);
+            Animal boerGoat = new Goat(8, "Carrie", 6);
             animalRepository.Add(alpineGoat);
             animalRepository.Add(boerGoat);
 
