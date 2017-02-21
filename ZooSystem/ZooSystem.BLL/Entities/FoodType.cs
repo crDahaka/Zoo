@@ -4,7 +4,7 @@
     public enum FoodType
     {
         Milk,
-        Meat,
+        Crumbs,
         Grass,
         Crackers
     }

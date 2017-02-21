@@ -7,8 +7,6 @@
     using BLL.Entities.Animals.Birds;
     using BLL.Entities.Keepers;
     using BLL.Entities.Zoo;
-    using BLL.Entities.Animals.Carnivore;
-    using BLL.Entities.Animals.Herbivore;
     using BLL.Entities.Animals.Mammals;
     using DAL;
 
@@ -34,35 +32,32 @@
 
             // Birds
 
-            Animal macawParrot = new Parrot(1,"Jerome", 1);
-            Animal caiqueParrot = new Parrot(2, "Austin", 2);
-            animalRepository.Add(macawParrot);
-            animalRepository.Add(caiqueParrot);
+            Animal parrot = new Parrot(1,"Jerome", 1);
+            Animal duck = new Duck(2, "Austin", 2);
+            Animal owl = new Owl(3, "Braxton", 1);
+            animalRepository.Add(parrot);
+            animalRepository.Add(duck);
+            animalRepository.Add(owl);
+            
+            // Mammals
 
-            // Carnivore
-
-            Animal africanLion = new Lion(3, "Connor", 7);
-            Animal caveLion = new Lion(4, "Sly", 4);
-            animalRepository.Add(africanLion);
-            animalRepository.Add(caveLion);
+            Animal lion = new Lion(3, "Connor", 7);
+            Animal goat = new Goat(4, "Sly", 4);
+            Animal monkey = new Monkey(5, "Gorilaz", 3);
+            animalRepository.Add(lion);
+            animalRepository.Add(goat);
+            animalRepository.Add(monkey);
 
             // Herbivore
 
-            Animal reindeer = new Deer(5,"Lora", 2);
-            Animal blackTailedDeer = new Deer(6, "Ann", 4);
-            animalRepository.Add(reindeer);
-            animalRepository.Add(blackTailedDeer);
-
-            // Mammals
-
-            Animal alpineGoat = new Goat(7, "Merry", 1);
-            Animal boerGoat = new Goat(8, "Carrie", 6);
-            animalRepository.Add(alpineGoat);
-            animalRepository.Add(boerGoat);
-
+            Animal deer = new Deer(7,"Lora", 2);
+            Animal muleDeer = new MuleDeer(8, "Ann", 4);
+            Animal zebra = new Zebra(9, "Jane", 9);
+            animalRepository.Add(deer);
+            animalRepository.Add(muleDeer);
+            animalRepository.Add(zebra);
+            
             // Keepers
-
-            // var keeperLevel = GenerateRandomKeeperLevel.GenerateRandomLevel<Level>();
 
             KeeperRepository keeperRepository = new KeeperRepository();
             
@@ -78,17 +73,17 @@
 
             // Assign animals to protect
 
-            noviceKeeper.ProtectAnimal(macawParrot);
-            noviceKeeper.ProtectAnimal(blackTailedDeer);
+            noviceKeeper.ProtectAnimal(parrot);
+            noviceKeeper.ProtectAnimal(zebra);
 
-            intermediateKeeper.ProtectAnimal(boerGoat);
-            intermediateKeeper.ProtectAnimal(alpineGoat);
+            intermediateKeeper.ProtectAnimal(duck);
+            intermediateKeeper.ProtectAnimal(lion);
 
-            advancedKeeper.ProtectAnimal(caiqueParrot);
-            advancedKeeper.ProtectAnimal(reindeer);
+            advancedKeeper.ProtectAnimal(muleDeer);
+            advancedKeeper.ProtectAnimal(owl);
 
-            expertKeeper.ProtectAnimal(africanLion);
-            expertKeeper.ProtectAnimal(caveLion);
+            expertKeeper.ProtectAnimal(deer);
+            expertKeeper.ProtectAnimal(monkey);
 
             var animals = animalRepository.GetAll();
             var keepers = keeperRepository.GetAll();

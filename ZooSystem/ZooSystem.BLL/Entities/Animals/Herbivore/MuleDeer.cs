@@ -2,44 +2,43 @@
 {
     using System;
 
-    public class Deer : Animal
+    public class MuleDeer : Animal
     {
+        private const sbyte averageLifeSpan = 8;
 
-        private const byte averageLifeSpan = 13;
-
-        private const string DeerSpeech = "BEEEEEEE!";
+        private const string MuleDeerSpeech = "Auuuauuauuauu!";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="MuleDeer"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
-        public Deer(int id, string name, int age)
+        public MuleDeer(int id, string name, int age)
             : base(id, name, age, averageLifeSpan)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="MuleDeer"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, DateTime birthDay)
+        public MuleDeer(int id, string name, int age, DateTime birthDay)
             : base(id, name, age, averageLifeSpan, birthDay)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="MuleDeer"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="stamina"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, int stamina, DateTime birthDay)
+        public MuleDeer(int id, string name, int age, int stamina, DateTime birthDay)
             : base(id, name, age, stamina, averageLifeSpan, birthDay)
         {
 
@@ -51,32 +50,32 @@
         }
 
         /// <summary>
-        /// Feeds the zebra.
+        /// Feeds the mule deer.
         /// </summary>
         /// <param name="food"></param>
         public override void Eat(AnimalFood food)
         {
-            if (food.Type != FoodType.Milk)
+            if (food.Type != FoodType.Crumbs)
             {
-                Console.WriteLine("Throw some grass to the deers!");
+                Console.WriteLine("Give milk to the deers!");
                 return;
 
             }
 
             Console.WriteLine(
-                    "Deer {0} got fresh grass and increased its stamina with {1}.",
+                    "Mule Deer {0} got some fresh milk and increased its stamina with {1}.",
                     this.Name, food.RegenerateStamina());
 
             this.IncreaseStamina(food.RegenerateStamina());
         }
 
         /// <summary>
-        /// Introduces deer.
+        /// Introduces mule deer.
         /// </summary>
         /// <returns></returns>
         public override string Speak()
         {
-            return string.Format("Deer {0} says {1}:", this.Name, DeerSpeech);
+            return string.Format("Monkey {0} says {1}:", this.Name, MuleDeerSpeech);
         }
     }
 }

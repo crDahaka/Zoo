@@ -2,44 +2,44 @@
 {
     using System;
 
-    public class Deer : Animal
+    public class Zebra : Animal
     {
 
-        private const byte averageLifeSpan = 13;
+        private const byte averageLifeSpan = 40;
 
-        private const string DeerSpeech = "BEEEEEEE!";
+        private const string ZebraSpeech = "Auuauuauuau!";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Zebra"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
-        public Deer(int id, string name, int age)
+        public Zebra(int id, string name, int age)
             : base(id, name, age, averageLifeSpan)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Zebra"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, DateTime birthDay)
+        public Zebra(int id, string name, int age, DateTime birthDay)
             : base(id, name, age, averageLifeSpan, birthDay)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Zebra"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="stamina"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, int stamina, DateTime birthDay)
+        public Zebra(int id, string name, int age, int stamina, DateTime birthDay)
             : base(id, name, age, stamina, averageLifeSpan, birthDay)
         {
 
@@ -58,25 +58,25 @@
         {
             if (food.Type != FoodType.Milk)
             {
-                Console.WriteLine("Throw some grass to the deers!");
+                Console.WriteLine("Throw some grass to the zebras!");
                 return;
 
             }
 
             Console.WriteLine(
-                    "Deer {0} got fresh grass and increased its stamina with {1}.",
+                    "Zebra {0} got fresh grass and increased its stamina with {1}.",
                     this.Name, food.RegenerateStamina());
 
             this.IncreaseStamina(food.RegenerateStamina());
         }
 
         /// <summary>
-        /// Introduces deer.
+        /// Introduces zebra.
         /// </summary>
         /// <returns></returns>
         public override string Speak()
         {
-            return string.Format("Deer {0} says {1}:", this.Name, DeerSpeech);
+            return string.Format("Zebra {0} says {1}:", this.Name, ZebraSpeech);
         }
     }
 }

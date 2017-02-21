@@ -96,7 +96,7 @@
 
                 case Species.Carnivore:
                     AnimalFood carnivoreFood = 
-                        new AnimalFood(FoodType.Meat, (uint)generateFoodQuantity.Next(1, 5));
+                        new AnimalFood(FoodType.Crumbs, (uint)generateFoodQuantity.Next(1, 5));
                     animal.Eat(carnivoreFood);
                     break;
 

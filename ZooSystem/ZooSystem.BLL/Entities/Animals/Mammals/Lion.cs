@@ -2,81 +2,81 @@
 {
     using System;
 
-    public class Deer : Animal
+    public class Lion : Animal
     {
 
-        private const byte averageLifeSpan = 13;
+        private const sbyte averageLifeSpan = 15;
 
-        private const string DeerSpeech = "BEEEEEEE!";
+        private const string LionSpeech = "RAWRRRR!";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
-        public Deer(int id, string name, int age)
-            : base(id, name, age, averageLifeSpan)
+        public Lion(int id, string name, int age)
+            :base(id, name, age, averageLifeSpan)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, DateTime birthDay)
-            : base(id, name, age, averageLifeSpan, birthDay)
+        public Lion(int id, string name, int age, DateTime birthDay)
+            :base(id, name, age, averageLifeSpan, birthDay)
         {
 
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Deer"/> class.
+        /// Initializes a new instance of the <see cref="Lion"/> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="age"></param>
         /// <param name="stamina"></param>
         /// <param name="birthDay"></param>
-        public Deer(int id, string name, int age, int stamina, DateTime birthDay)
-            : base(id, name, age, stamina, averageLifeSpan, birthDay)
+        public Lion(int id, string name, int age, int stamina, DateTime birthDay)
+            :base(id, name, age, stamina, averageLifeSpan, birthDay)
         {
 
         }
 
         public override Species Specie
         {
-            get { return Species.Herbivore; }
+            get { return Species.Mammal;}
         }
 
         /// <summary>
-        /// Feeds the zebra.
+        /// Feeds the lion.
         /// </summary>
         /// <param name="food"></param>
         public override void Eat(AnimalFood food)
         {
-            if (food.Type != FoodType.Milk)
+            if (food.Type != FoodType.Crumbs)
             {
-                Console.WriteLine("Throw some grass to the deers!");
+                Console.WriteLine("Lion eats only meat!");
                 return;
-
+                
             }
 
             Console.WriteLine(
-                    "Deer {0} got fresh grass and increased its stamina with {1}.",
+                    "Lion {0} got some fresh meat and increased its stamina with {1}.",
                     this.Name, food.RegenerateStamina());
 
             this.IncreaseStamina(food.RegenerateStamina());
         }
 
         /// <summary>
-        /// Introduces deer.
+        /// Introduces lion.
         /// </summary>
         /// <returns></returns>
         public override string Speak()
         {
-            return string.Format("Deer {0} says {1}:", this.Name, DeerSpeech);
+            return string.Format("Lion {0} says {1}:", this.Name, LionSpeech);
         }
     }
 }

@@ -42,10 +42,15 @@
   <ItemGroup>
     <Compile Include="Entities\AnimalFood.cs" />
     <Compile Include="Entities\Animals\Animal.cs" />
+    <Compile Include="Entities\Animals\Birds\Duck.cs" />
     <Compile Include="Entities\Animals\Birds\Parrot.cs" />
-    <Compile Include="Entities\Animals\Carnivore\Lion.cs" />
     <Compile Include="Entities\Animals\Herbivore\Deer.cs" />
+    <Compile Include="Entities\Animals\Herbivore\MuleDeer.cs" />
+    <Compile Include="Entities\Animals\Herbivore\Zebra.cs" />
+    <Compile Include="Entities\Animals\Mammals\Lion.cs" />
     <Compile Include="Entities\Animals\Mammals\Goat.cs" />
+    <Compile Include="Entities\Animals\Mammals\Monkey.cs" />
+    <Compile Include="Entities\Animals\Birds\Owl.cs" />
     <Compile Include="Entities\Animals\Species.cs" />
     <Compile Include="Entities\FoodType.cs" />
     <Compile Include="Entities\Keepers\Keeper.cs" />
@@ -59,6 +64,7 @@
       <Name>ZooSystem.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
